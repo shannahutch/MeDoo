@@ -1,4 +1,3 @@
-
 This is project #2 MeeDo
 
-cooooool
+This my Medoo Readme
