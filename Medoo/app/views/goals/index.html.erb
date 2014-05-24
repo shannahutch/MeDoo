@@ -1,1 +1,8 @@
-Hello world :)
+<%= link_to("Create New Goal", new_goal_path) %>
+<br>
+<h1>All Goals</h1>
+<% @goals.each do |goal| %>
+  <h3><%= goal.name %></h3>
+  <%= goal.description %> <br>
+  <hr>
+<% end %>
