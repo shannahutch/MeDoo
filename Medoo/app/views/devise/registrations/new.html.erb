@@ -1,18 +1,26 @@
-<h2>Sign up</h2>
+<% content_for :body_type do%>
+signup<% end %>
 
-<%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+<div class="signupnew">
+	<h2>Sign up</h2>
+	<h4>Get your free account today</h4>
+</div>
+
+<div class="col-md-4 col-sm-4 col-xs-6 col-md-offset-4 col-sm-offset-4">
+<%= bootstrap_form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
   <%= devise_error_messages! %>
 
-  <div><%= f.label :email %><br />
-  <%= f.email_field :email, autofocus: true %></div>
+  <div>
+  <%= f.email_field :email, autofocus: true, hide_label: true, placeholder: "Email" %></div>
 
-  <div><%= f.label :password %><br />
-    <%= f.password_field :password, autocomplete: "off" %></div>
+  <div>
+    <%= f.password_field :password, autocomplete: "off", hide_label: true, placeholder: "Password" %></div>
 
-  <div><%= f.label :password_confirmation %><br />
-    <%= f.password_field :password_confirmation, autocomplete: "off" %></div>
+  <div>
+    <%= f.password_field :password_confirmation, autocomplete: "off", hide_label: true, placeholder: "Password Confirmation" %></div>
 
-  <div><%= f.submit "Sign up" %></div>
+  <div><%= f.submit "Sign up", class: "btn btn-primary" %></div>
 <% end %>
-
+<!-- 
 <%= render "devise/shared/links" %>
+ -->

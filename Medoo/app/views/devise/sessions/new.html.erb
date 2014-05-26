@@ -1,17 +1,31 @@
-<h2>Sign in</h2>
+<% content_for :body_type do%>
+new<% end %>
 
-<%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-  <div><%= f.label :email %><br />
-  <%= f.email_field :email, autofocus: true %></div>
+<div class="newsignup">
+<%= link_to "Sign up", new_registration_path(resource_name), class: "btn btn-success" %>
+</div>
 
-  <div><%= f.label :password %><br />
-    <%= f.password_field :password, autocomplete: "off" %></div>
+<h1 class="newtitle">MeDoo</h1>
 
-  <% if devise_mapping.rememberable? -%>
-    <div><%= f.check_box :remember_me %> <%= f.label :remember_me %></div>
-  <% end -%>
+<div class="aboutlanding">
+	<p><span id="organizer">ORGANIZER</span> / <span id="task"> TASK LIST</span></p>
+	<h1>Scheduling Solutions</h1>
+	<p>Organize your projects and never miss a goal again.</p>
+</div>
 
-  <div><%= f.submit "Sign in" %></div>
-<% end %>
+<div class="col-md-4 col-sm-4 col-xs-6 col-md-offset-4 col-sm-offset-4" style="margin-top: 3%;">
+	<%= bootstrap_form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+	<%= f.email_field :email, autofocus: true, hide_label: true, placeholder: 'Email' %>
+		  
+	<%= f.password_field :password, autocomplete: "off", hide_label: true, placeholder: "Password" %>
 
-<%= render "devise/shared/links" %>
+	<% if devise_mapping.rememberable? -%>
+		  	<%= f.check_box :remember_me %>
+	<% end %>
+
+	<div><%= f.submit "Log in", class: "btn btn-primary" %></div>
+	<% end %>
+	<br />
+	<%= link_to "Forgot your password?", new_password_path(resource_name)%>
+
+</div>
