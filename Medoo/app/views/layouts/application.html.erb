@@ -5,8 +5,9 @@
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
+  <link href='http://fonts.googleapis.com/css?family=Droid+Serif:400,700|Oleo+Script' rel='stylesheet' type='text/css'>
 </head>
-<body>
+<body class="<%= yield :body_type %>">
 
   <p class="navbar-text pull-right">
     <% if user_signed_in? %>
