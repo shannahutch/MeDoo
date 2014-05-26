@@ -2,9 +2,7 @@ class GoalsController < ApplicationController
 	def index
 		@goals = Goal.all
 	end
-<<<<<<< HEAD
-  
-=======
+
 
   def new
     @goal = Goal.new
@@ -31,5 +29,5 @@ class GoalsController < ApplicationController
   #   def goal_params
   #     params.require(:goal).permit(:name, :description)
   #   end
->>>>>>> new_page
+# new_page
 end
