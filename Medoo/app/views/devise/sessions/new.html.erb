@@ -26,6 +26,6 @@ new<% end %>
 	<div><%= f.submit "Log in", class: "btn btn-primary" %></div>
 	<% end %>
 	<br />
-	<%= link_to "Forgot your password?", new_password_path(resource_name)%>
+	Forgot your password? <%= link_to "Click here", new_password_path(resource_name), class: "btn btn-info"%>
 
 </div>
