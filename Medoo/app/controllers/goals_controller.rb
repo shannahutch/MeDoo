@@ -1,33 +1,46 @@
 class GoalsController < ApplicationController
-	def index
+	
+  def index
 		@goals = Goal.all
 	end
 
-
   def new
     @goal = Goal.new
-
-    # redirect_to new_goals_path
   end
 
   def create
-    #binding.pry
-    goal_params = params.require(:goal).permit(:name, :description)
-    new_goal = Goal.new(goal_params)
-     if new_goal.save
+    @goal= Goal.new(goal_params)
+     if @goal.save
       redirect_to goals_path
     else
       flash[:error] = "Your Goal was not saved. Try again"
         redirect_to new_goals_path
-    end
-      
+    end 
   end
 
+  def show
+    @goal = Goal.find(params[:id])
+  end
 
+  def edit
+    @goal = Goal.find(params[:id])
+  end
 
-  # private
-  #   def goal_params
-  #     params.require(:goal).permit(:name, :description)
-  #   end
-# new_page
+  def update
+    @goal = Goal.find(params[:id])
+    @goal.update(goal_params)
+    redirect_to goals_path
+  end
+
+  def destroy
+    @goal = Goal.find(params[:id])
+    @goal.destroy
+    redirect_to goals_path
+  end
+
+  private
+    def goal_params
+      params.require(:goal).permit(:name, :description)
+    end
+
 end

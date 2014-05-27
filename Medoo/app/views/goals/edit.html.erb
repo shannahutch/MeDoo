@@ -1,13 +1,13 @@
 
-<h3>My new goal</h3>
+<h3>Edit your goal</h3>
 
 <%= form_for @goal do |f| %>
 
-<%= label_tag(:name, "Name your Goal!") %>
+<%= label_tag(:name, "Current goal") %>
 <%= f.text_field :name %></br>
 <%= label_tag(:description, 'Description')%>
 <%= f.text_area :description %></br>
 
-<%= f.submit "Create" %>
+<%= f.submit "Update" %>
 
 <%end%>

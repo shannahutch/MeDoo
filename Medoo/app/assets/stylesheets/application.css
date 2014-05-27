@@ -17,6 +17,27 @@
  */
 
 
+.goalsindex{
+	background-image: url("http://i.imgur.com/78EUbSj.jpg");
+	background-size: cover;
+	color: white;
+	text-align: center;
+}
+
+.creategoal{
+	margin-left:33%;
+	text-align: center;
+	display: inline;
+	position: relative;
+	top: 35px;
+}
+
+.goallist{
+	text-align: center;
+	font-family: 'Droid Serif';
+	position: relative;
+	top: 50px;
+}
 
 .new{
 	background-image: url("http://i.imgur.com/7migqDY.jpg");
@@ -49,7 +70,7 @@
 }
 
 .signup{
-	background-image: url("http://i.imgur.com/78EUbSj.jpg");
+	background-image: url("http://i.imgur.com/C8ISDhw.jpg");
 	background-size: cover;
 	color: white;
 	font-family: 'Droid Serif'
@@ -57,5 +78,19 @@
 
 .signupnew{
 	margin-left: 35%;
+}
+
+.forgotnew{
+	background-image: url("http://i.imgur.com/JEvna3w.jpg");
+	background-size: cover;
+	color: white;
+	/*	background-size: 100% 220%; */
+	/*http://i.imgur.com/tUMUkVh.jpg*/
+}
+
+.editprofile{
+	background-image: url("http://i.imgur.com/wZ03PdR.jpg");
+	background-size: auto;
+	color: white;
 }
 
