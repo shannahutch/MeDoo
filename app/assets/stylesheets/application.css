@@ -18,26 +18,34 @@
 
 
 .goalsindex{
-	background-image: url("http://i.imgur.com/78EUbSj.jpg");
+	background-image: url("http://i.imgur.com/vc1cOXu.jpg");
 	background-size: cover;
-	color: white;
 	text-align: center;
+	color: white;
+	font-family:arial,sans-serif;
+  	font-size:100%;
+  	margin:1em;
+  	color:#fff;
 }
 
 .creategoal{
-	margin-left:33%;
+	margin-left:36%;
 	text-align: center;
 	display: inline;
 	position: relative;
 	top: 35px;
+
 }
 
-.goallist{
-	text-align: center;
-	font-family: 'Droid Serif';
-	position: relative;
-	top: 50px;
+.stickynotes{
+	margin-top: 5%;
 }
+
+/*.goallist{
+	margin-left: 33%;
+	font-family: 'Droid Serif';
+	top: 50px;
+}*/
 
 .new{
 	background-image: url("http://i.imgur.com/7migqDY.jpg");
@@ -81,7 +89,7 @@
 }
 
 .forgotnew{
-	background-image: url("http://i.imgur.com/JEvna3w.jpg");
+	background-image: url("http://i.imgur.com/Lq6UinT.png");
 	background-size: cover;
 	color: white;
 	/*	background-size: 100% 220%; */
@@ -90,7 +98,70 @@
 
 .editprofile{
 	background-image: url("http://i.imgur.com/wZ03PdR.jpg");
-	background-size: auto;
+	background-size: cover;
 	color: white;
+}
+
+.navbar-text{
+	font-size: 200%;
+}
+
+.alert{
+	font-size: 200%;
+}
+
+.stickyheader,p{
+  	font-size:100%;
+  	font-weight:normal;
+  	font-family: "Reenie Beanie",arial,sans-serif;
+}
+ul,li{
+ 	list-style:none;
+  	display: inline;
+  	list-style-type: none;
+  	padding-right: 20px;
+}
+ul{
+  	overflow:hidden;
+  	padding:3em;
+}
+ul li{
+  	text-decoration:none;
+  	color:#000;
+  	background:#ffc;
+  	display:block;
+  	height:20em;
+  	width:20em;
+  	padding:1em;
+}
+ul li{
+	margin:4em;
+  	float:left;
+}
+ul li .stickyheader{
+  	font-size:250%;
+  	font-weight:bold;
+  	padding-bottom:10px;
+}
+ul li .sticky{
+  	font-family:"Reenie Beanie",arial,sans-serif;
+  	font-size:280%;
+}
+ul li{
+  	-webkit-transform:rotate(-6deg);
+  	-o-transform:rotate(-6deg);
+  	-moz-transform:rotate(-6deg);
+}
+ul li{
+  text-decoration:none;
+  color:#000;
+  background:#ffc;
+  display:block;
+  height:20em;
+  width:20em;
+  padding:1em;
+  -moz-box-shadow:5px 5px 7px rgba(33,33,33,1);
+  -webkit-box-shadow: 5px 5px 7px rgba(33,33,33,.7);
+  box-shadow: 5px 5px 7px rgba(33,33,33,.7);
 }
 

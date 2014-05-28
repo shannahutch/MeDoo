@@ -3,14 +3,22 @@ goalsindex<% end %>
 
 <div class="creategoal"><%= link_to "Create New Goal", new_goal_path, class: "btn btn-primary" %>
 </div>
-
+<!-- 
 <div class="goallist">
-<h1>Your Current Goals:</h1>
+<h1>Current Goals:</h1>
+</div> -->
+<div class="stickynotes">
 <% @goals.each do |goal| %>
-  <h3><%= goal.name %></h3>
-  <%= goal.description %> <br>
-  <%= link_to "Edit a Goal", edit_goal_path(goal.id), class: "btn btn-info"  %>
-  <%= link_to "Remove a Goal", goal_path(goal.id), method: 'delete', class: "btn btn-danger" %>
-  <hr>
+<ul>
+  <li>
+      <h2 class="stickyheader">Goal: <%= goal.name %></h2>
+      <p class="sticky">Details: <%= goal.description %></p>
+      <p class="sticky"><%= link_to "Edit", edit_goal_path(goal.id)%> / <span><%= link_to "Remove", goal_path(goal.id), method: 'delete' %></span></p>
+
+  </li>
+</ul>
 <% end %>
 </div>
+
+
+
