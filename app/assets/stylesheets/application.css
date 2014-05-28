@@ -94,3 +94,55 @@
 	color: white;
 }
 
+.goalsnew{ 
+	background-image: url("http://coachkyle.ca/wp-content/uploads/2012/07/success_next_exit-life-goals.jpg");
+	background-size: cover;
+	color: white;
+	font-family: Reenie Beanie;
+}
+
+.newgoalhead{
+	text-align: left;
+	padding-top: 55px;
+	padding-left: 102px;
+	padding-bottom: 40px;
+	font-size: 55px;
+}
+
+#newname{
+	text-align: center;
+	color: #FBFFFC;
+	font-size: 19px;
+	padding-right: 245px;
+	padding-bottom: 5px;
+	padding-left: 64px;
+}
+#newdescription{
+	text-align: center;
+	color: #FBFFFC;
+	font-size: 19px;
+	padding-right: 245px;
+	padding-bottom: -5px;
+	padding-left: 104px;}
+
+/*.newcreate{
+	text-align: center;
+	color: #FBFFFC;	
+	font-size: 15px;
+}
+*/
+.btn-link{
+	border-radius: 50px;
+	color: #FBFFFC;
+	font-size: 20px;		
+	padding-top: 0px;
+	padding-left: 533px;
+}
+ #goal_description{
+ 	color: black;
+ }
+
+#goal_name{
+	color: black;
+}
+
