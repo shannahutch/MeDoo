@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140526220107) do
+ActiveRecord::Schema.define(version: 20140528185440) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -25,11 +25,10 @@ ActiveRecord::Schema.define(version: 20140526220107) do
   end
 
   create_table "months", force: true do |t|
-    t.string   "month_name"
-    t.string   "month_goal_1"
-    t.string   "month_goal_2"
-    t.string   "month_goal_3"
+    t.string   "month_goal_name"
     t.integer  "goal_id"
+    t.integer  "month_num"
+    t.integer  "year"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -51,5 +50,15 @@ ActiveRecord::Schema.define(version: 20140526220107) do
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
   add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
+
+  create_table "weeks", force: true do |t|
+    t.string   "weekly_goal_name"
+    t.integer  "goal_id"
+    t.integer  "week_num"
+    t.integer  "year"
+    t.integer  "month"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
 end
