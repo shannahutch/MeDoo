@@ -1,13 +1,18 @@
-
-<h3>My new goal</h3>
-
+<% content_for :body_type do%>
+goalsnew<% end %>
+<div class="newgoalhead">
+<h1>My New Goal ~</h1>
+</div>
+<div class="newform">
 <%= form_for @goal do |f| %>
-
-<%= label_tag(:name, "Name your Goal!") %>
-<%= f.text_field :name %></br>
+<div id="newname">
+<%= label_tag(:name, "Name your Goal!")%>
+<%= f.text_field :name , :autofocus => true%></div></br>
+<div id="newdescription">
 <%= label_tag(:description, 'Description')%>
-<%= f.text_area :description %></br>
-
-<%= f.submit "Create" %>
-
+<%= f.text_field :description %></dev></br>
+</div>
+<div class="newcreate">
+<%= f.submit "Create", class: "btn btn-link" %>
+</div>
 <%end%>
