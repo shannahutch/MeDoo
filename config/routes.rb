@@ -2,7 +2,9 @@ Rails.application.routes.draw do
   devise_for :users
 
   resources :goals do
-    resources :months
+    resources :months do
+      resources :weeks
+    end
   end
 
   root 'goals#index'

@@ -1,5 +1,19 @@
+<%= link_to('All goals', root_path)%>
+<hr>
+<h1>Monthly Sub-Goals for:</h1>
+<h2>Goal: <%=@master_goal.name%></h2>
+<h5>Description: <%=@master_goal.description%></h5>
+<!-- TODO make sure the < > are going taking user to the next/previous year -->
+<%= link_to('<')%>
+<%=@year%>
+<%= link_to('>')%>
+<hr>
 
-<% @months.each do |month| %>
-<%= month.month_name %>
+<% @months_array.each do |month| %>
+  <h3><%= link_to(month[:month_name], goal_month_weeks_path(@master_goal,month[:month_num],year:@year))%></h3>
+  <% @monthly_goals.where(month_num: month[:month_num]).each do |monthly_goal| %>
+    <%= monthly_goal.month_goal_name %> <br>
+  <% end %>
+  <%= link_to("Create New Monthly Sub-Goal", new_goal_month_path(@master_goal, month_num:month[:month_num], year:@year)) %>
+  <hr>
 <% end %>
-
