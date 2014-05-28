@@ -1,23 +1,6 @@
-
-<div class="col-md-4 col-sm-4 col-xs-6 col-md-offset-4 col-sm-offset-4" style="margin-top: 3%;">
-	<h2>Jan</h2>
-<%= bootstrap_form_for([@goal, @month]) do |f| %>
-	<%= f.text_field :month_name %>
-	<%= f.text_field :month_goal_1 %>
-	<%= f.text_field :month_goal_2 %>
-	<%= f.text_field :month_goal_3 %>
-	<%= f.submit "Submit" %>
-<% end %>
-</div>
-
-
-<div class="col-md-4 col-sm-4 col-xs-6 col-md-offset-4 col-sm-offset-4" style="margin-top: 3%;">
-	<h2>Feb</h2>
-<%= bootstrap_form_for([@goal, @month]) do |f| %>
-	<%= f.text_field :month_name %>
-	<%= f.text_field :month_goal_1 %>
-	<%= f.text_field :month_goal_2 %>
-	<%= f.text_field :month_goal_3 %>
-	<%= f.submit "Submit" %>
-<% end %>
-</div>
+<form action="<%=goal_months_path(@master_goal,month_num:@month_num,year:@year)%>" method="post">
+  <%= token_tag form_authenticity_token %>
+  New Monthly Sub-goal: 
+  <input type="text" placeholder="To accomplish given month.." name="new_monthly_todo">
+  <input type = "submit">
+</form>
