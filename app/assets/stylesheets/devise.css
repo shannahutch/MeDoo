@@ -97,6 +97,22 @@
 }
 
 .editheader{
-	text-align: center;
+	margin-left: 35%;
 	font-family: 'Droid Serif'
 }
+.editform{
+	position: relative;
+	top: -3em;
+}
+
+#editsubmit{
+	position: relative;
+	margin-left: 35%;
+	top: 7em;
+}
+
+#editcancel{
+	top: 28em;
+	position: absolute;
+	margin-left: 35%; 
+}	

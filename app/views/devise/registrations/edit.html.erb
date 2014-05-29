@@ -1,13 +1,10 @@
 <% content_for :body_type do%>
 editprofile<% end %>
 
-<div class="newsignup">
-  <%= link_to "Back", root_path, class: "btn btn-info" %>
-</div>
 
 <h2 class="editheader">Edit <%= resource_name.to_s.humanize %></h2>
-
-
+<div class="editform">
+<div class="col-md-6 col-sm-6 col-md-offset-2 col-md-offset-2">
 <%= bootstrap_form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
   <%= devise_error_messages! %>
 
@@ -16,20 +13,21 @@ editprofile<% end %>
     <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
   <% end %>
 
-  <div id="editpw"><%= f.label :password %> <i>(leave blank if you don't want to change it)</i><br />
+  <div id="editpw">
     <%= f.password_field :password, autocomplete: "off", hide_label: true, placeholder: "New Password" %></div>
 
-  <div id="editpwconfirm"><%= f.label :password_confirmation %><br />
+  <div id="editpwconfirm">
     <%= f.password_field :password_confirmation, autocomplete: "off", hide_label: true, placeholder: "Password Confirmation" %></div>
 
-  <div id="editpwcurrent"><%= f.label :current_password %> <i>(we need your current password to confirm your changes)</i><br />
+  <div id="editpwcurrent">
     <%= f.password_field :current_password, autocomplete: "off", hide_label: true, placeholder: "Current Password" %></div>
 
-  <div id="editsubmit"><%= f.submit "Update", class: "btn btn-primary" %></div>
+  <div id="editsubmit"><%= f.submit "Update", class: "btn btn-primary" %> or <span> <%= link_to "Back", root_path, class: "btn btn-info" %></span> </div>
 <% end %>
+</div>
+</div>
 
-<h3>Cancel my account</h3>
 <div id="editcancel">
+<h3>Cancel my account</h3>
 <%= button_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete, class: "btn btn-danger" %>
-
 </div>
