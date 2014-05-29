@@ -2,25 +2,29 @@
 <%= link_to("#{Date::MONTHNAMES[@month.to_i]} overview", goal_month_weeks_path(@master_goal,@month, year:@year)) %>
 <hr>
 <h1>Weekly Tasks for:</h1>
+<%= link_to('<', goal_month_week_days_path(@master_goal,@month,@week,year:@year.to_i-1))%>
+  <%=@year%>
+<%= link_to('>', goal_month_week_days_path(@master_goal,@month,@week,year:@year.to_i+1))%>
+<br>
+<!-- TODO make sure the < > are going taking user to the next/previous month -->
+<%= link_to('<', goal_month_week_days_path(@master_goal,@month,@previous_week,year:@year))%>
+  Week: <%=@week%>
+<%= link_to('>', goal_month_week_days_path(@master_goal,@month,@next_week,year:@year))%>
+<hr>
 <ul>
   <% @given_week_sub_goals.each do |given_week_sub_goal| %>
     <li><%=given_week_sub_goal.weekly_goal_name%></li>
   <% end %>
 </ul>
 <hr>
-<!-- TODO make sure the < > are going taking user to the next/previous month -->
-<%= link_to('<')%>
-  Week: <%=@week%>
-<%= link_to('>')%>
-<hr>
 
 <% @days_array.each do |day| %>
   <h3><%= "#{day[:day_name]} - #{day[:date]}"%></h3>
-  <% if @day_tasks.where(day: day[:date].day, year: @year, week_num: @week) != nil %>
-    <% @day_tasks.where(day: day[:date].day, year: @year, week_num: @week).each do |task| %>
+  <% if @week_day_tasks.where(day: day[:date].day, year: @year, week_num: @week) != nil %>
+    <% @week_day_tasks.where(day: day[:date].day, year: @year, week_num: @week).each do |task| %>
       <%= task.day_task_name %> <br>
     <% end %>
   <% end %>
-  <%= link_to("Create New Task", new_goal_month_week_day_path(@master_goal, @month, @week, day:day[:day],year:@year)) %>
+  <%= link_to("Create New Task", new_goal_month_week_day_path(@master_goal, @month, @week, day:day[:date].day,year:@year)) %>
   <hr>
 <% end %>

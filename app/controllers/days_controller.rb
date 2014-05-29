@@ -2,24 +2,33 @@ class DaysController < ApplicationController
 	  before_action :load_master_goal, :load_date_info
 
   def index
+    # sql select all the sub-weekly-goals -> input from the weekly view
     @given_week_sub_goals = @master_goal.weeks.where(week_num:@week, year:@year)
-    @day_tasks = @master_goal.days.where(week_num:@week, year:@year)
-    # TODO should be an array of hashes with 2values: [day_num: 1-31 , day_dates:full day name for given day] for given week!!
+
+    # sql select all the daily tasks for give week -> input that was previously typed in This day view
+    @week_day_tasks = @master_goal.days.where(week_num:@week, year:@year)
+
+    # Creating the "framework" for displaying the @week_day_tasks on page (day_name + date provided)
     @days_array = []
     for i in 1..7 do
-    	@days_array.push({day_name: Date::DAYNAMES[Date.commercial(@year.to_i,@week.to_i,i).wday], date: Date.commercial(@year.to_i,@week.to_i,i)})
+    	@days_array.push({day_name: Date::DAYNAMES[Date.commercial(@year,@week,i).wday], date: Date.commercial(@year,@week,i)})
     end
-    # binding.pry
+
+    # Creating variables for < > selection of the week, making sure that there is 1 last week of given year
+    @next_week = next_week(@week, @year)
+    @previous_week = previous_week(@week, @year)
   end
 
   def new
-    @week_num = params["week_num"]
+  	@day = params[:day]
   end
 
   def create
-    @new_week_goal = @master_goal.weeks.new(year: params[:year], month: params[:month_id], week_num: params[:week_num], weekly_goal_name: params[:new_weekly_todo])
-    if @new_week_goal.save
-      redirect_to goal_month_weeks_path(@master_goal,@month,year:params[:year]), notice: 'Weekly goal was created'
+	@day = params[:day]
+    @new_day_task = @master_goal.days.new(year: @year, month: @month, week_num: @week, day:@day, day_task_name: params[:new_day_task])
+    # binding.pry
+    if @new_day_task.save
+      redirect_to goal_month_week_days_path(@master_goal,@month,@week,year:params[:year]), notice: 'Day Task was created'
     else
       render action: 'new'
     end
@@ -36,10 +45,52 @@ class DaysController < ApplicationController
   end
 
   def load_date_info
-    # TODO: make sure that year, month are hard coded into the website and user can change that
-    # (so that it's not taken from params only since they can be deleted)
-    @week = params[:week_id]
-    @month = params[:month_id]
-    @year = params[:year]
+    if params["month_id"] != nil
+      @month = params["month_id"].to_i
+    else
+      @month = Date.today.month
+    end
+
+    if params["year"] != nil
+      @year = params["year"].to_i
+    else
+      @year = Date.today.year
+    end  
+
+    # handling special case when somebody changes the year in daily view on week 53 and another year has only 52wks
+    if params["week_id"].to_i <= last_year_week_num(@year)
+      if params["week_id"] != nil
+        @week = params[:week_id].to_i
+      else
+        @week = Date.today.strftime("%V").to_i
+      end
+    else
+      @week = last_year_week_num(@year)
+    end
+  end
+
+  def last_year_week_num(year)
+    last_year_day = Date.new(year,12,31)
+    if last_year_day.strftime("%V").to_i != 1
+      return last_year_day.strftime("%V").to_i
+    else
+      return (last_year_day-7.days).strftime("%V").to_i
+    end
+  end
+
+  def next_week(current_week,year)
+    if current_week+1 <= last_year_week_num(year)
+      return current_week+1
+    else
+      return 1
+    end
+  end
+
+  def previous_week(current_week,year)
+    if current_week-1 >= 1 
+      return current_week-1
+    else
+      return last_year_week_num(year)
+    end
   end
 end
