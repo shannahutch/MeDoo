@@ -1,6 +1,14 @@
-<form action="<%=goal_months_path(@master_goal,month_num:@month_num,year:@year)%>" method="post">
-  <%= token_tag form_authenticity_token %>
-  New Monthly Sub-goal: 
-  <input type="text" placeholder="To accomplish given month.." name="new_monthly_todo">
-  <input type = "submit">
-</form>
+<% content_for :body_type do%>
+monthsnew<% end %>
+
+<div class="form-group">
+	<div class="col-md-6">
+		<form action="<%=goal_months_path(@master_goal,month_num:@month_num,year:@year)%>" method="post">
+  		<%= token_tag form_authenticity_token %>
+  			<h3>New Monthly Goal</h3>
+  				<input type="text" placeholder="Exercise, etc." name="new_monthly_todo" class="form-control">
+<br />
+  				<input type = "submit" id="monthsubmit">
+	</div>
+		</form>
+</div>
