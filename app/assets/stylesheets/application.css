@@ -16,6 +16,9 @@
  *= require_self
  */
 
+hr {
+  border:none;
+}
 
 .goalsindex{
 	background-image: url("http://i.imgur.com/vc1cOXu.jpg");
