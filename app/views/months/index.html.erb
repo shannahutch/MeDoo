@@ -11,7 +11,7 @@
 
 <% @months_array.each do |month| %>
   <h3><%= link_to(month[:month_name], goal_month_weeks_path(@master_goal,month[:month_num],year:@year))%></h3>
-  <% @monthly_goals.where(month_num: month[:month_num]).each do |monthly_goal| %>
+  <% @monthly_goals.where(month_num: month[:month_num], year:@year).each do |monthly_goal| %>
     <%= monthly_goal.month_goal_name %> <br>
   <% end %>
   <%= link_to("Create New Monthly Sub-Goal", new_goal_month_path(@master_goal, month_num:month[:month_num], year:@year)) %>

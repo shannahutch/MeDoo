@@ -15,9 +15,9 @@ Month: <%=@month%>
 <hr>
 
 <% @weeks_array.each do |week| %>
-  <h3><%= week[:week_dates] %> (week#: <%= week[:week_num] %>)</h3>
-  <% if @weekly_goals.where(week_num: week[:week_num]) != nil %>
-    <% @weekly_goals.where(week_num: week[:week_num]).each do |goal| %>
+  <h3><%= link_to("#{week[:week_dates]} (week#: #{week[:week_num]})", goal_month_week_days_path(@master_goal,@month,week[:week_num],year:@year))%></h3>
+  <% if @weekly_goals.where(week_num: week[:week_num], year: @year) != nil %>
+    <% @weekly_goals.where(week_num: week[:week_num], year: @year).each do |goal| %>
     <%= goal.weekly_goal_name %> <br>
     <% end %>
   <% end %>

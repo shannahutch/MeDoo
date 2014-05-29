@@ -4,7 +4,6 @@ class WeeksController < ApplicationController
   def index
     @given_month_sub_goals = Month.where(goal_id:params[:goal_id], month_num:params[:month_id], year:params[:year])
     @weekly_goals = Week.where(goal_id:params[:goal_id], month:params[:month_id], year:params[:year])
-    # TODO should be an array of hashes with 2values: [week_num: 1-52 , week_dates:week dates for given week] for given Year!!
     @weeks_array = []
     month_begining_day = Date.new(@year.to_i, @month.to_i, 1)
     month_ending_day = month_begining_day.at_end_of_month
