@@ -2,22 +2,20 @@
 forgotnew<% end %>
 
 <div class="newsignup">
- <%= link_to "Sign in", new_session_path(resource_name), class: "btn btn-info" %>
+ <%= link_to "Sign in", new_session_path(resource_name), class: "btn btn-info" %><span> or </span>
  <%= link_to "Sign up", new_registration_path(resource_name), class: "btn btn-success" %>
 </div>
 
-<div class="newtitle">
+<div id="pwforgotheader">
 	<h2>Forgot your password?</h2>
 	<p>Please enter your email</p>
 </div>
 
-<div class="col-md-4 col-sm-4 col-xs-6 col-md-offset-4 col-sm-offset-4" style="margin-top: 3%;">
+<div class="col-md-6 col-sm-5 col-md-offset-2 col-sm-offset-2">
 <%= bootstrap_form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post }) do |f| %>
   <%= devise_error_messages! %>
 
   <%= f.email_field :email, autofocus: true, hide_label: true, placeholder: "Email" %>
-
-  <div><%= f.submit "Send me reset password instructions", class: "btn btn-primary" %></div>
-<% end %>
-
 </div>
+  <div id="pwresetbutton"><%= f.submit "Send me reset password instructions", class: "btn btn-primary" %></div>
+<% end %>

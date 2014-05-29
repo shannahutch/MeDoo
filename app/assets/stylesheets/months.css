@@ -1,7 +1,71 @@
-// Place all the styles related to the months controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
+
+.monthsindex{
+	background-image: url("http://i.imgur.com/pycIBY6.jpg");
+	background-size: cover;
+	color:white;
+	text-align: center;
+}
+
+.monthindextext{
+	font-family: 'Droid Serif';
+}
+
+.monthtable{
+	border-spacing: 0.5rem;
+	text-align: center;
+	margin: 15px;
+	float: left;
+	margin-left:7%;
+	height:20em;
+  	width:20em;
+ 	background:#ffc;
+ 	color: black;
+ 	-webkit-transform:rotate(-6deg);
+  	-o-transform:rotate(-6deg);
+  	-moz-transform:rotate(-6deg);
+  	-moz-box-shadow:5px 5px 7px rgba(33,33,33,1);
+  	-webkit-box-shadow: 5px 5px 7px rgba(33,33,33,.7);
+  	box-shadow: 5px 5px 7px rgba(33,33,33,.7);
+}
+
+#month_2, #month_6, #month_7, #month_8, #month_11{
+	-webkit-transform:rotate(6deg);
+  	-o-transform:rotate(6deg);
+  	-moz-transform:rotate(6deg);
+}
+
+th {
+  	padding: 0.5rem;
+  	text-align: center;
+  	font-size: 250%;
+  	font-family: 'Reenie Beanie'
+}
+#monthlygoal{
+	font-size: 250%;
+	font-family: 'Reenie Beanie' 
+}
+
+.form-group{
+	top: 5em;
+	margin-left: 35%;
+	position: relative;
+}
 
 .monthsnew{
-	background-color: red;	
+	background-image: url("http://i.imgur.com/VipRc60.jpg");
+	background-size: cover;
+	color: white;
+}
+#monthsubmit{
+    background-color: #1E1E1E;
+    color: #979797;
+    height: 24px;
+    width: 103px;
+    color: #bbbbbb;
+ 	border: 0;
+    border-radius:5px;
+    font-family: Sansation,Arial;
+}
+#newmonthheader{
+	font-family: 'Droid Serif'
 }

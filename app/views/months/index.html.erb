@@ -7,17 +7,14 @@ monthsindex<% end %>
 <div class="monthindextext">
 <h1>Goal: <u><%=@master_goal.name%></u></h1>
 <h5>Details: <%=@master_goal.description%></h5>
-<%= link_to('<', goal_months_path(@master_goal,year:@year.to_i-1))%>
-  <%=@year%>
-<%= link_to('>', goal_months_path(@master_goal,year:@year.to_i+1))%>
 <h3>Set your monthly goals:</h3>
 </div>
 
 <hr>
 
-<h1><%= link_to('<')%>
-<%=@year%>
-<%= link_to('>')%></h1>
+<h1><%= link_to('<', goal_months_path(@master_goal,year:@year.to_i-1))%>
+  <%=@year%>
+<%= link_to('>', goal_months_path(@master_goal,year:@year.to_i+1))%></h1>
 
 <% @months_array.each do |month| %>
 
@@ -41,4 +38,5 @@ monthsindex<% end %>
 	</tbody>
   </table>
 </div>
+
 
