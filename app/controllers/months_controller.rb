@@ -32,7 +32,28 @@ class MonthsController < ApplicationController
     end
   end
 
+
+  def edit
+    @month_goal = Month.find(params[:id])
+  end
+
+  def update
+    @month_goal = Month.find(params[:id])
+    @month_goal.update(month_goal_params)
+    redirect_to goal_months_path(@master_goal)
+  end
+
+  def destroy
+    @month_goal = Month.find(params[:id])
+    @month_goal.destroy
+    redirect_to goal_months_path(@master_goal)
+  end
+
   private
+
+  def month_goal_params
+    params.require(:month).permit(:month_goal_name, :year ,:month_num)
+  end
 
   def load_master_goal
     @master_goal = Goal.find(params[:goal_id])

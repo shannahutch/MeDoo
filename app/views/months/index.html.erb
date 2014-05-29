@@ -20,7 +20,6 @@ monthsindex<% end %>
 </h1>
 
 <% @months_array.each do |month| %>
-
 	<table class="monthtable" id="month_<%= month[:month_num] %>">
 		<thead>
 			<tr>
@@ -30,13 +29,16 @@ monthsindex<% end %>
 	<div class="monthmenu" id="month_<%= month[:month_num] %>">
 		<tbody>
 			<tr>
-			<% @monthly_goals.where(month_num: month[:month_num], year:@year).each do |monthly_goal| %>
-
-   <td id="monthlygoal"><%= monthly_goal.month_goal_name %></td></tr>
-  <% end %>
- 
-  <td><%= link_to("+ New Monthly Goal", new_goal_month_path(@master_goal, month_num:month[:month_num], year:@year), class: "btn btn-primary") %></td></tr>
-
+  			<% @monthly_goals.where(month_num: month[:month_num], year:@year).each do |monthly_goal| %>
+          <td id="monthlygoal">
+            <%= monthly_goal.month_goal_name %> 
+            <%= link_to "Edit", edit_goal_month_path(@master_goal, monthly_goal)%>
+            
+          </td>
+        </tr>
+        <% end %>
+        <td><%= link_to("+ New Monthly Goal", new_goal_month_path(@master_goal, month_num:month[:month_num], year:@year), class: "btn btn-primary") %></td>
+      </tr>
 <% end %>
 	</tbody>
   </table>

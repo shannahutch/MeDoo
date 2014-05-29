@@ -1,0 +1,17 @@
+<% content_for :body_type do%>
+  goalsedit
+<% end %>
+
+<div class="col-md-4 col-sm-4 col-xs-6 col-md-offset-4 col-sm-offset-4">
+  <h3>Edit your goal</h3>
+  <%= bootstrap_form_for([@master_goal, @month_goal]) do |f| %>
+    <%= label_tag(:month_goal_name, "Current goal") %>
+    <%= f.text_field :month_goal_name, hide_label: true  %></br>
+    <%= label_tag(:month_num, "Month") %>
+    <%= f.text_field :month_num, hide_label: true  %></br>
+    <%= label_tag(:year, "Year") %>
+    <%= f.text_field :year, hide_label: true  %></br>
+    <%= f.submit "Update", class: "btn btn-primary" %>
+  <%end%>
+  <%= link_to "Remove", goal_month_path(@master_goal,@month_goal), method: 'delete', :confirm => 'Are you sure?'%>
+</div>

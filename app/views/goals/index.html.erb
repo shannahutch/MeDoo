@@ -10,7 +10,8 @@ goalsindex<% end %>
   <li class="indexli" id="goal_<%= goal.id%>">
       <h2 class="stickyheader">Goal: <%= link_to(goal.name, goal_months_path(goal) )%></h2>
       <p class="sticky">Details: <%= goal.description %></p>
-      <p class="sticky"><%= link_to "Edit", edit_goal_path(goal.id)%> / <span><%= link_to "Remove", goal_path(goal.id), method: 'delete' %></span></p>
+      <p class="sticky">
+        <%= link_to "Edit", edit_goal_path(goal.id)%>/<span><%= link_to("Remove", goal_path(goal.id), method: 'delete', :confirm => 'Are you sure?')%></span></p>
 
   </li>
 </ul>
