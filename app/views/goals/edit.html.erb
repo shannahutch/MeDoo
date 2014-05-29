@@ -1,13 +1,18 @@
+<% content_for :body_type do%>
+goalsedit<% end %>
+
+<div class="col-md-4 col-sm-4 col-xs-6 col-md-offset-4 col-sm-offset-4">
 
 <h3>Edit your goal</h3>
 
-<%= form_for @goal do |f| %>
+<%= bootstrap_form_for @goal do |f| %>
 
 <%= label_tag(:name, "Current goal") %>
-<%= f.text_field :name %></br>
-<%= label_tag(:description, 'Description')%>
-<%= f.text_area :description %></br>
+<%= f.text_field :name, hide_label: true  %></br>
+<%= label_tag(:description, 'Details')%>
+<%= f.text_area :description, hide_label: true %></br>
 
-<%= f.submit "Update" %>
+<%= f.submit "Update", class: "btn btn-primary" %>
 
 <%end%>
+</div>
