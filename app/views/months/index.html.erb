@@ -7,9 +7,12 @@ monthsindex<% end %>
 <div class="monthindextext">
 <h1>Goal: <u><%=@master_goal.name%></u></h1>
 <h5>Details: <%=@master_goal.description%></h5>
-<!-- TODO make sure the < > are going taking user to the next/previous year -->
+<%= link_to('<', goal_months_path(@master_goal,year:@year.to_i-1))%>
+  <%=@year%>
+<%= link_to('>', goal_months_path(@master_goal,year:@year.to_i+1))%>
 <h3>Set your monthly goals:</h3>
 </div>
+
 <hr>
 
 <h1><%= link_to('<')%>
@@ -17,6 +20,7 @@ monthsindex<% end %>
 <%= link_to('>')%></h1>
 
 <% @months_array.each do |month| %>
+
 	<table class="monthtable" id="month_<%= month[:month_num] %>">
 		<thead>
 			<tr>
@@ -26,7 +30,7 @@ monthsindex<% end %>
 	<div class="monthmenu" id="month_<%= month[:month_num] %>">
 		<tbody>
 			<tr>
-			<% @monthly_goals.where(month_num: month[:month_num]).each do |monthly_goal| %>
+			<% @monthly_goals.where(month_num: month[:month_num], year:@year).each do |monthly_goal| %>
 
    <td id="monthlygoal"><%= monthly_goal.month_goal_name %></td></tr>
   <% end %>
@@ -37,6 +41,4 @@ monthsindex<% end %>
 	</tbody>
   </table>
 </div>
-
-
 

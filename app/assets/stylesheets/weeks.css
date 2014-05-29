@@ -1,0 +1,74 @@
+
+/*WEek index page css*/
+.weekindex{
+  text-align: center;
+  background-image :url("http://l.rgbimg.com/cache1ouuHf/users/b/ba/ba1969/600/mv1R6F4.jpg");
+  background-size: cover;
+
+}
+
+h1{
+  padding-top: 83px;
+  padding-bottom: 20px;
+}
+ul{
+  padding-top: 5px;
+
+}
+
+.weekshow{
+  text-align: center;
+  font-family: Rock Salt;
+  /*background-image :url("http://www.sportphysiotherapist.com/wp-content/uploads/2011/10/IMG_28322.jpg");*/
+ /* background-size: cover;*/
+ /* background-color: #F2F5A9;*/
+/*  width: 300px;*/
+
+}
+
+
+.weekbanner{
+    text-align: left;
+    font-size: 20px;
+    color: black;
+    font-family: "Reenie Beanie",arial,sans-serif;
+    padding-left: 33px;
+    padding-top: 8px;
+}
+ h2 {
+  font-size: 25px;
+ }
+.weeklist{
+  color: black;
+  font-family: "Reenie Beanie",arial,sans-serif;
+  font-size: 21px;
+  
+}
+
+/*week new css*/
+
+.weeknew{
+  text-align: center;
+  background-image: url("http://adoptresources.co.uk/wp-content/uploads/2013/03/photoxpress_pinboard.jpg");
+  background-size: cover;
+}
+
+#newweekly{
+  padding-top: 126px;
+  font-size: 70px;
+  color: #DF0101;
+  font-family: Reenie Beanie;
+  padding-right: 346px;
+}
+
+#weeklyinput{
+  width: 1000px;
+  background-color: #F2F5A9;
+  /*opacity: 0;*/
+  margin-top: 100px;
+  margin-left: 400px;
+  width: 153px;
+  height: 65px;
+  color: #FE2E2E;
+}
+
