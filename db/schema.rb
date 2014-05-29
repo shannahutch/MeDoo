@@ -11,10 +11,23 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140528185440) do
+ActiveRecord::Schema.define(version: 20140529174620) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "days", force: true do |t|
+    t.string   "day_task_name"
+    t.integer  "year"
+    t.integer  "month"
+    t.integer  "week_num"
+    t.integer  "day"
+    t.integer  "goal_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "days", ["goal_id"], name: "index_days_on_goal_id", using: :btree
 
   create_table "goals", force: true do |t|
     t.string   "name"
@@ -56,7 +69,6 @@ ActiveRecord::Schema.define(version: 20140528185440) do
     t.integer  "goal_id"
     t.integer  "week_num"
     t.integer  "year"
-    t.integer  "month"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
