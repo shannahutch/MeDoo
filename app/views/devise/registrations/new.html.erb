@@ -1,9 +1,6 @@
 <% content_for :body_type do%>
 signup<% end %>
 
-<div class="newsignup">
-  <%= link_to "Back", root_path, class: "btn btn-info" %>
-</div>
 
 <div class="signupnew">
 	<h2>Sign up</h2>
@@ -23,5 +20,6 @@ signup<% end %>
   <div>
     <%= f.password_field :password_confirmation, autocomplete: "off", hide_label: true, placeholder: "Password Confirmation" %></div>
 
-  <div><%= f.submit "Sign up", class: "btn btn-primary" %></div>
+  <div><%= f.submit "Sign up", class: "btn btn-primary" %> or <span> <%= link_to "Back", root_path, class: "btn btn-info" %></span></div>
 <% end %>
+
