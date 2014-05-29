@@ -35,6 +35,26 @@ class WeeksController < ApplicationController
   def show
   end
 
+  # def edit
+  #   @new_week_goal = New_week_goal.find(params[:id])
+  # end
+
+  # def update
+  #   @new_week_goal = New_week_goal.find(params[:id])
+  #   @new_week_goal.update(goal_params)
+  #   redirect_to new_goal_month_week
+  # end
+
+  # def destroy
+  #   @new_week_goal = New_week_goal.find(params[:id])
+  #   @new_week_goal.destroy
+  #   redirect_to  goal_month_week_path
+  # end
+
+  private
+    def goal_params
+      params.require(:goal).permit(:name, :description)
+    end
 
   private
 

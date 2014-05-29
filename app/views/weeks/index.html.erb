@@ -1,5 +1,10 @@
+<% content_for :body_type do%>
+weekindex<% end %>
+<div class ="weekbanner">
 <%= link_to("All goals", root_path) %> <br>
-<%= link_to("Yealy overview", goal_months_path(@master_goal, year:@year)) %>
+<%= link_to("Yearly overview", goal_months_path(@master_goal, year:@year)) %>
+</div>
+<div class ="weekshow">
 <hr>
 <h1>Monthly Sub-Goals for:</h1>
 <ul>
@@ -8,6 +13,7 @@
   <% end %>
 </ul>
 <hr>
+</div>
 <!-- TODO make sure the < > are going taking user to the next/previous month -->
 <%= link_to('<')%>
 Month: <%=@month%>
@@ -15,12 +21,17 @@ Month: <%=@month%>
 <hr>
 
 <% @weeks_array.each do |week| %>
-  <h3><%= week[:week_dates] %> (week#: <%= week[:week_num] %>)</h3>
+<div class ="weeklist">
+
+  <h2><%= week[:week_dates] %> (week#: <%= week[:week_num] %>)</h2>
+
   <% if @weekly_goals.where(week_num: week[:week_num]) != nil %>
     <% @weekly_goals.where(week_num: week[:week_num]).each do |goal| %>
     <%= goal.weekly_goal_name %> <br>
     <% end %>
   <% end %>
   <%= link_to("Create New Weekly Goal", new_goal_month_week_path(@master_goal, @month, week_num:week[:week_num],year:@year)) %>
-  <hr>
-<% end %>
+   
+
+<% end %> 
+</div>
