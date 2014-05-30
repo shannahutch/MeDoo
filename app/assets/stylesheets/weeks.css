@@ -30,7 +30,7 @@
 .weekbanner{
     text-align: left;
     font-size: 20px;
-    color: black;
+    color: #0C581Fg;
     font-family: "Reenie Beanie",arial,sans-serif;
     padding-left: 33px;
     padding-top: 8px;
@@ -56,7 +56,7 @@
 #newweekly{
   padding-top: 126px;
   font-size: 70px;
-  color: #DF0101;
+  color: #0C581F;
   font-family: Reenie Beanie;
   padding-right: 346px;
   padding-top: 7%;
@@ -70,14 +70,14 @@
   margin-left: 400px;*/
   width: 153px;
   height: 65px;
-  color: #F2F5A9;
+  color: #DF0101;
   margin-top: 15%;
   margin-left: 5%;
-  border: none;
+  border-color: rgb(230, 236, 162);
 }
 
 textarea{
-  background-color: #F2F5A9;
+  background-color: rgb(230, 236, 162);
 }
 
 textarea:focus {
@@ -91,9 +91,11 @@ outline: none;
 .newbuttonarea{
     margin-left: 18%;
     /*background: #F2F5A9;*/
+
 }
 
 #newbutton{
   color: #DF0101;
   border: none;
+  background-color: rgb(230, 236, 162);
 }
