@@ -1,7 +1,27 @@
+.daysindex{
+	background-image: url("http://i.imgur.com/xAcdpU3.jpg");
+	background-size: cover;
+	color: white;
+}
+
 .daysnew{
 	background-image: url("http://i.imgur.com/qGepgMr.jpg");
 	background-size: cover;
 	color: white;
+}
+
+#daysindexheader{
+	position: absolute;
+	top: 1.5em;
+	margin-left: 40%;
+	font-family: 'Reenie Beanie'
+}
+.daynavi{
+	top: 3.5em;
+	margin-left: 45%;
+	font-family: 'Reenie Beanie';
+	font-size:30px;
+	position: absolute;
 }
 
 #newdayform{
@@ -29,4 +49,22 @@
 .daynewform{
 	top: 10em;
 	position: relative;
+}
+
+.daystable{
+	position: relative;
+	top: 9em;
+	text-align: center;
+	margin: 1px;
+	float: left;
+	margin-left: 5px;
+	height:35em;
+  	width:12em;
+  	background-color: rgba(255, 255, 204, 0.5);
+ 	color: black;
+}
+
+#day_Thursday, #day_Friday, #day_Saturday, #day_Sunday{
+	position: relative;
+	top: 7.9em;
 }

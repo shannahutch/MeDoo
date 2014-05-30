@@ -1,7 +1,10 @@
-<%= link_to("All goals", root_path) %> <br>
-<%= link_to("#{Date::MONTHNAMES[@month]} overview", goal_weeks_path(@master_goal,month:@month, year:@year)) %>
+<% content_for :body_type do%>
+daysindex<% end %>
+
+<%= link_to("#{Date::MONTHNAMES[@month]} overview", goal_weeks_path(@master_goal,month:@month, year:@year), class: "btn btn-primary") %>
 <hr>
-<h1>Weekly Tasks for:</h1>
+<h1 id="daysindexheader">Weekly Tasks for:</h1>
+<div class="daynavi">
 <%= link_to('<---', goal_days_path(@master_goal,week:@week,year:@year.to_i-1))%>
   <%=@year%>
 <%= link_to('--->', goal_days_path(@master_goal,week:@week,year:@year.to_i+1))%>
@@ -9,6 +12,7 @@
 <%= link_to('<---', goal_days_path(@master_goal,week:@previous_week,year:@year))%>
   Week: <%=@week%>
 <%= link_to('--->', goal_days_path(@master_goal,week:@next_week,year:@year))%>
+</div>
 <hr>
 <ul>
   <% @given_week_sub_goals.each do |given_week_sub_goal| %>
@@ -18,12 +22,26 @@
 <hr>
 
 <% @days_array.each do |day| %>
-  <h3><%= "#{day[:day_name]} - #{day[:date]}"%></h3>
+<table class="daystable" id="day_<%= day[:day_name] %>">
+  <thead>
+    <tr>
+      <th><h3><%= "#{day[:date]}"%></h3> <h3><%= "#{day[:day_name]}"%></h3></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
   <% if @week_day_tasks.where(day: day[:date].day, year: @year, week_num: @week) != nil %>
     <% @week_day_tasks.where(day: day[:date].day, year: @year, week_num: @week).each do |task| %>
-      <%= task.day_task_name %> <%= link_to "Edit", edit_goal_day_path(@master_goal, task, week:@week)%> <br>
+      <tr>
+      <td class="daytd"><%= task.day_task_name %></td> 
+      </tr>
+      <tr>
+      <td class="daytd"><%= link_to "Edit", edit_goal_day_path(@master_goal, task, week:@week)%> <br></td></tr>
     <% end %>
   <% end %>
-  <%= link_to("Create New Task", new_goal_day_path(@master_goal, week:@week, day:day[:date].day,year:@year)) %>
+  <td><%= link_to("Create New Task", new_goal_day_path(@master_goal, week:@week, day:day[:date].day,year:@year)) %></td>
+</tr>
+</tbody>
+</table>
   <hr>
 <% end %>
