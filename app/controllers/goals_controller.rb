@@ -15,7 +15,7 @@ class GoalsController < ApplicationController
       redirect_to goals_path
     else
       flash[:error] = "Your Goal was not saved. Try again"
-      redirect_to new_goals_path
+      redirect_to new_goal_path
     end
   end
 

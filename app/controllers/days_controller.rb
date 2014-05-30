@@ -29,7 +29,7 @@ class DaysController < ApplicationController
     if @new_day_task.save
       redirect_to goal_days_path(@master_goal,week:@week,year:params[:year]), notice: 'Day Task was created'
     else
-      render action: 'new'
+      redirect_to goal_days_path(@master_goal,week:@week,year:params[:year]), notice: 'Try again! Day Task was NOT created'
     end
   end
 

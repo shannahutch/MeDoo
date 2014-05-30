@@ -25,7 +25,7 @@ class WeeksController < ApplicationController
     if @new_week_goal.save
       redirect_to goal_weeks_path(@master_goal,month:@month,year:params[:year]), notice: 'Weekly goal was created'
     else
-      render action: 'new'
+      redirect_to goal_weeks_path(@master_goal,month:@month,year:params[:year]), notice: 'Try again! Weekly goal was NOT created'
     end
   end
 

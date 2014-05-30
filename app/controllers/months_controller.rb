@@ -28,7 +28,7 @@ class MonthsController < ApplicationController
     if @month_goal.save
       redirect_to goal_months_path(@master_goal,year:@year), notice: 'monthly goal was created'
     else
-      render action: 'new'
+      redirect_to goal_months_path(@master_goal,year:@year), notice: 'Goal was NOT created, try again'
     end
   end
 
