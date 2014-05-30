@@ -1,10 +1,13 @@
+
 <% content_for :body_type do%>
 daysnew<% end %>
 
 <div class="daynewform">
 <div class="form-group">
 	<div class="col-md-6 col-sm-6 col-md-offset-1 col-sm-offset-1">
-<form action="<%=goal_month_week_days_path(@master_goal,@month,@week, year:@year, day:@day)%>" method="post">
+
+<form action="<%=goal_days_path(@master_goal,week:@week, year:@year, day:@day)%>" method="post">
+
   <%= token_tag form_authenticity_token %>
   <h1 id="daynewheader">New Daily Task:</h1><input type="text" placeholder="Go for a jog, etc." name="new_day_task" class="form-control" id="newdayform">
   <input type = "submit" id="daysubmit">

@@ -18,51 +18,45 @@ class WeeksController < ApplicationController
 
   def new
     @week_num = params["week_num"]
-    # binding.pry
   end
 
   def create
     @new_week_goal = @master_goal.weeks.new(year: params[:year], week_num: params[:week_num], weekly_goal_name: params[:new_weekly_todo])
     if @new_week_goal.save
-      redirect_to goal_month_weeks_path(@master_goal,@month,year:params[:year]), notice: 'Weekly goal was created'
+      redirect_to goal_weeks_path(@master_goal,month:@month,year:params[:year]), notice: 'Weekly goal was created'
     else
       render action: 'new'
     end
   end
 
-  def show
+  def edit
+    @week_goal = Week.find(params[:id])    
   end
 
-  # def edit
-  #   @new_week_goal = New_week_goal.find(params[:id])
-  # end
+  def update
+    @week_goal = Week.find(params[:id])
+    @week_goal.update(week_goal_params)
+    redirect_to goal_weeks_path(@master_goal,month:@month)
+  end
 
-  # def update
-  #   @new_week_goal = New_week_goal.find(params[:id])
-  #   @new_week_goal.update(goal_params)
-  #   redirect_to new_goal_month_week
-  # end
-
-  # def destroy
-  #   @new_week_goal = New_week_goal.find(params[:id])
-  #   @new_week_goal.destroy
-  #   redirect_to  goal_month_week_path
-  # end
+  def destroy
+    @week_goal = Week.find(params[:id])
+    @week_goal.destroy
+    redirect_to goal_weeks_path(@master_goal,month:@month)
+  end
 
   private
-    def goal_params
-      params.require(:goal).permit(:name, :description)
-    end
-
-  private
+  def goal_params
+    params.require(:goal).permit(:name, :description)
+  end
 
   def load_master_goal
     @master_goal = Goal.find(params[:goal_id])
   end
 
   def load_date_info
-    if params["month_id"] != nil
-      @month = params["month_id"].to_i
+    if params["month"] != nil
+      @month = params["month"].to_i
     else
       @month = Date.today.month
     end
@@ -126,4 +120,9 @@ class WeeksController < ApplicationController
     end
     return month_week_goals
   end
+
+  def week_goal_params
+    params.require(:week).permit(:weekly_goal_name, :year ,:week_num)
+  end
+
 end
