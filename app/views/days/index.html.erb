@@ -14,9 +14,9 @@ daysindex<% end %>
 <%= link_to('--->', goal_days_path(@master_goal,week:@next_week,year:@year))%>
 </div>
 <hr>
-<ul>
+<ul class="dayindexul">
   <% @given_week_sub_goals.each do |given_week_sub_goal| %>
-    <li><%=given_week_sub_goal.weekly_goal_name%></li>
+    <li class="dayindexli">Weekly Goal: <%=given_week_sub_goal.weekly_goal_name%></li>
   <% end %>
 </ul>
 <hr>
@@ -25,21 +25,19 @@ daysindex<% end %>
 <table class="daystable" id="day_<%= day[:day_name] %>">
   <thead>
     <tr>
-      <th><h3><%= "#{day[:date]}"%></h3> <h3><%= "#{day[:day_name]}"%></h3></th>
+      <th><h3><%= "#{day[:date]}"%></h3> <h3><%= "#{day[:day_name]}"%></h3><h4><%= link_to("Create New Task", new_goal_day_path(@master_goal, week:@week, day:day[:date].day,year:@year)) %></h4></th>
     </tr>
   </thead>
   <tbody>
     <tr>
   <% if @week_day_tasks.where(day: day[:date].day, year: @year, week_num: @week) != nil %>
     <% @week_day_tasks.where(day: day[:date].day, year: @year, week_num: @week).each do |task| %>
-      <tr>
-      <td class="daytd"><%= task.day_task_name %></td> 
       </tr>
       <tr>
-      <td class="daytd"><%= link_to "Edit", edit_goal_day_path(@master_goal, task, week:@week)%> <br></td></tr>
+      <td class="daytd"><%= task.day_task_name %> / 
+      <%= link_to "Edit", edit_goal_day_path(@master_goal, task, week:@week)%></td> 
     <% end %>
   <% end %>
-  <td><%= link_to("Create New Task", new_goal_day_path(@master_goal, week:@week, day:day[:date].day,year:@year)) %></td>
 </tr>
 </tbody>
 </table>
