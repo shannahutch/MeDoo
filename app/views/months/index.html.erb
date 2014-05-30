@@ -23,7 +23,7 @@ monthsindex<% end %>
 	<table class="monthtable" id="month_<%= month[:month_num] %>">
 		<thead>
 			<tr>
-				<th><b><%= link_to(month[:month_name], goal_month_weeks_path(@master_goal,month[:month_num],year:@year))%></b></th>
+				<th><b><%= link_to(month[:month_name], goal_weeks_path(@master_goal,month:month[:month_num],year:@year))%></b></th>
 			</tr>
 		</thead>
 	<div class="monthmenu" id="month_<%= month[:month_num] %>">
@@ -33,7 +33,6 @@ monthsindex<% end %>
           <td id="monthlygoal">
             <%= monthly_goal.month_goal_name %> 
             <%= link_to "Edit", edit_goal_month_path(@master_goal, monthly_goal)%>
-            
           </td>
         </tr>
         <% end %>

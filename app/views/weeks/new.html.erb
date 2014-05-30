@@ -1,9 +1,10 @@
 <% content_for :body_type do%>
 weeknew<% end %>
-<form action="<%=goal_month_weeks_path(@master_goal,@month,week_num:@week_num, year:@year)%>" method="post">
+<form action="<%=goal_weeks_path(@master_goal,month:@month,week_num:@week_num, year:@year)%>" method="post">
   <%= token_tag form_authenticity_token %>
- <div id ="newweekly"> New weekly todo:</div> <div id ="weeklyinput"><textarea autofocus class="form control" rows="3" placeholder="What do you want to accomplish.." name="new_weekly_todo" :autofocus ></textarea></div>
- 
+ <div id ="newweekly"> New weekly todo:</div> 
+ <div id ="weeklyinput"><textarea autofocus class="form control" rows="3" placeholder="What do you want to accomplish.." name="new_weekly_todo" :autofocus ></textarea></div>
+ <input type = "submit">
  <button type="button" class="btn btn-link btn-xs" style="font-size: 16px;text-align: left; padding-right: 284px; color: #DF0101; font-family:  Reenie Beanie; padding-left: 525px;
   padding-right: 475px; ">Submit</button>
 

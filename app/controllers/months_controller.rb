@@ -32,7 +32,6 @@ class MonthsController < ApplicationController
     end
   end
 
-
   def edit
     @month_goal = Month.find(params[:id])
   end

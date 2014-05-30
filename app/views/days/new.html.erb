@@ -1,4 +1,4 @@
-<form action="<%=goal_month_week_days_path(@master_goal,@month,@week, year:@year, day:@day)%>" method="post">
+<form action="<%=goal_days_path(@master_goal,week:@week, year:@year, day:@day)%>" method="post">
   <%= token_tag form_authenticity_token %>
   New day todo: <input type="text" placeholder="What do you want to accomplish.." name="new_day_task">
   <input type = "submit">
