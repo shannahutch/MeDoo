@@ -7,11 +7,11 @@
 
 }
 
-h1{
+#weeksheader{
   padding-top: 83px;
   padding-bottom: 20px;
 }
-ul{
+#weeksullist{
   padding-top: 5px;
 
 }
@@ -35,7 +35,7 @@ ul{
     padding-left: 33px;
     padding-top: 8px;
 }
- h2 {
+ #weekstitle{
   font-size: 25px;
  }
 .weeklist{
@@ -59,16 +59,41 @@ ul{
   color: #DF0101;
   font-family: Reenie Beanie;
   padding-right: 346px;
+  padding-top: 7%;
 }
 
 #weeklyinput{
   width: 1000px;
   background-color: #F2F5A9;
   /*opacity: 0;*/
-  margin-top: 100px;
-  margin-left: 400px;
+  /*margin-top: 100px;
+  margin-left: 400px;*/
   width: 153px;
   height: 65px;
-  color: #FE2E2E;
+  color: #F2F5A9;
+  margin-top: 15%;
+  margin-left: 5%;
+  border: none;
 }
 
+textarea{
+  background-color: #F2F5A9;
+}
+
+textarea:focus {
+background: #F2F5A9;
+color: none;
+border: none;
+outline: none;
+}
+/*USe a color picker extension in chrome and you will get a perfect color match.....please spread the word that I am the styling master*/
+
+.newbuttonarea{
+    margin-left: 18%;
+    /*background: #F2F5A9;*/
+}
+
+#newbutton{
+  color: #DF0101;
+  border: none;
+}
