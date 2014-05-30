@@ -13,6 +13,7 @@ class DaysController < ApplicationController
     for i in 1..7 do
     	@days_array.push({day_name: Date::DAYNAMES[Date.commercial(@year,@week,i).wday], date: Date.commercial(@year,@week,i)})
     end
+    #binding.pry
 
     # Creating variables for < > selection of the week, making sure that there is 1 last week of given year
     @next_week = next_week(@week, @year)
