@@ -1,5 +1,8 @@
 require 'spec_helper'
 
 describe Day do
-  pending "add some examples to (or delete) #{__FILE__}"
+  it do
+    d = Day.reflect_on_association(:goal)
+    d.macro.should === :belongs_to
+  end
 end

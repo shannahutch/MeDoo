@@ -1,28 +1,21 @@
-== README
+The purpose pf this app is to allow a user to set anual goals for themselves and then subsequently organize an anual goal into smaller more reachable increments.  The user will be routesd through the app at smaller and smaller time increments (is yr, months, weeks, days) to asist them in organization.  At each level the user will be able to add edit and remove items 'goals' as then wish.  
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+This App ; will use several different gems including: rails, factory-girl, pg, booatrap-form, spring, dotenve-rails, rail-12factor, rspec, devise
 
-Things you may want to cover:
+It will begin with models for, users(created by devise), goals, months, weeks, days.  
 
-* Ruby version
+Controllers for goals, months, weeks, days will also be utilized.  mostlikely no partials as each form is unique to it timeframe. 
 
-* System dependencies
+We will not need seed data. 
 
-* Configuration
+We will create associations so that goals belong to users and goals  have many months, weeks, and days.  
 
-* Database creation
+The routes will be nested of course under goals. 
 
-* Database initialization
+There will be views for each controller,  minimally including index and new.  
 
-* How to run the test suite
+We are planning to set everything up with ruby initially and then time and ability permitting transfer in the JS and use Ajax.  
 
-* Services (job queues, cache servers, search engines, etc.)
+We are also planning to go heavy on CSS. This will be placed in individual files for each controller.  
 
-* Deployment instructions
-
-* ...
-
-
-Please feel free to use a different markup language if you do not plan to run
-<tt>rake doc:app</tt>.
+OUr App creates its own database. In time we would like to add ASANA.  

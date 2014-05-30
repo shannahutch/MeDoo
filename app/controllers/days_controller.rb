@@ -2,6 +2,7 @@ class DaysController < ApplicationController
 	  before_action :load_master_goal, :load_date_info, :check_goal_owner
 
   def index
+    
     # sql select all the sub-weekly-goals -> input from the weekly view
     @given_week_sub_goals = @master_goal.weeks.where(week_num:@week, year:@year)
 
