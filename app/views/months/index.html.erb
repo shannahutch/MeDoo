@@ -5,40 +5,41 @@ monthsindex<% end %>
 <br/>
 <br/>
 <div class="monthindextext">
+
 <h1>Goal: <u><%=@master_goal.name%></u></h1>
-<h5>Details: <%=@master_goal.description%></h5>
-<%= link_to('<', goal_months_path(@master_goal,year:@year.to_i-1))%>
-  <%=@year%>
-<%= link_to('>', goal_months_path(@master_goal,year:@year.to_i+1))%>
-<h3>Set your monthly goals:</h3>
+<h3>Details: <%=@master_goal.description%></h3>
+
 </div>
 
-<hr>
 
-<h1><%= link_to('<')%>
-<%=@year%>
-<%= link_to('>')%></h1>
+<h1><%= link_to('<', goal_months_path(@master_goal,year:@year.to_i-1))%>
+  <%=@year%>
+<%= link_to('>', goal_months_path(@master_goal,year:@year.to_i+1))%></h1>
+
+</h1>
 
 <% @months_array.each do |month| %>
-
 	<table class="monthtable" id="month_<%= month[:month_num] %>">
 		<thead>
 			<tr>
-				<th><b><%= link_to(month[:month_name], goal_month_weeks_path(@master_goal,month[:month_num],year:@year))%></b></th>
+				<th><b><%= link_to(month[:month_name], goal_weeks_path(@master_goal,month:month[:month_num],year:@year))%></b></th>
 			</tr>
 		</thead>
 	<div class="monthmenu" id="month_<%= month[:month_num] %>">
 		<tbody>
 			<tr>
-			<% @monthly_goals.where(month_num: month[:month_num], year:@year).each do |monthly_goal| %>
-
-   <td id="monthlygoal"><%= monthly_goal.month_goal_name %></td></tr>
-  <% end %>
- 
-  <td><%= link_to("+ New Monthly Goal", new_goal_month_path(@master_goal, month_num:month[:month_num], year:@year), class: "btn btn-primary") %></td></tr>
-
+  			<% @monthly_goals.where(month_num: month[:month_num], year:@year).each do |monthly_goal| %>
+          <td id="monthlygoal">
+            <%= monthly_goal.month_goal_name %> 
+            <%= link_to "Edit", edit_goal_month_path(@master_goal, monthly_goal)%>
+          </td>
+        </tr>
+        <% end %>
+        <td><%= link_to("+ New Monthly Goal", new_goal_month_path(@master_goal, month_num:month[:month_num], year:@year), class: "btn btn-primary") %></td>
+      </tr>
 <% end %>
 	</tbody>
   </table>
 </div>
+
 

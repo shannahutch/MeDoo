@@ -1,0 +1,118 @@
+.new{
+	background-image: url("http://i.imgur.com/7migqDY.jpg");
+	background-size: cover;
+	color: white;
+}
+
+.loginform{
+	position: relative;
+	top: -2em;
+}
+
+#rememberme{
+	margin-left: 35%;
+	position: relative;
+	top: 5em;
+}
+
+.loginbuttons{
+	position: relative;
+	margin-left: 35%;
+	top: 5em;
+}
+
+#forgotbutton{
+	top: 6em;
+	margin-left: 35%;
+	position: relative;
+}
+
+#pwforgotheader{
+	margin-left: 35%;
+	top: 2em;
+	color: white;
+	font-family: 'Droid Serif';
+	position: relative;
+}
+
+#pwresetbutton{
+	top: 19em;
+	left: 34.5%;
+	position: absolute;
+}
+
+.aboutlanding{
+	font-family:'Droid Serif';
+	margin-left: 35%;
+	top:3em;
+	position: relative;
+}
+
+
+#organizer{
+	color: #99CCFF;
+}
+
+#task{
+	color: #FFFF99;
+}
+
+.signup{
+	background-image: url("http://i.imgur.com/C8ISDhw.jpg");
+	background-size: cover;
+	color: white;
+	font-family: 'Droid Serif'
+}
+
+.signupnew{
+	margin-left: 35%;
+	top: 3em;
+	position: relative;
+}
+
+.newsignup{
+	margin-left: 35%;
+	top: 24em;
+	position: relative;
+}
+
+#signupbuttons{
+	margin-left: 35%;
+	top: 5em;
+	position: relative;
+}
+
+.forgotnew{
+	background-image: url("http://i.imgur.com/Lq6UinT.png");
+	background-size: cover;
+	color: white;
+	/*	background-size: 100% 220%; */
+	/*http://i.imgur.com/tUMUkVh.jpg*/
+}
+
+.editprofile{
+	background-image: url("http://i.imgur.com/wZ03PdR.jpg");
+	background-size: cover;
+	color: white;
+}
+
+.editheader{
+	margin-left: 35%;
+	font-family: 'Droid Serif'
+}
+.editform{
+	position: relative;
+	top: -3em;
+}
+
+#editsubmit{
+	position: relative;
+	margin-left: 35%;
+	top: 7em;
+}
+
+#editcancel{
+	top: 28em;
+	position: absolute;
+	margin-left: 35%; 
+}	

@@ -1,6 +1,6 @@
 <% content_for :body_type do%>
 weeknew<% end %>
-<form action="<%=goal_month_weeks_path(@master_goal,@month,week_num:@week_num, year:@year)%>" method="post">
+<form action="<%=goal_weeks_path(@master_goal,month:@month,week_num:@week_num, year:@year)%>" method="post">
   <%= token_tag form_authenticity_token %>
 
  <div id ="newweekly"> New weekly goal:</div> 

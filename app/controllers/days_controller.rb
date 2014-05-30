@@ -24,32 +24,43 @@ class DaysController < ApplicationController
   end
 
   def create
-	@day = params[:day]
-    @new_day_task = @master_goal.days.new(year: @year, month: @month, week_num: @week, day:@day, day_task_name: params[:new_day_task])
-    # binding.pry
+	  @day = params[:day].to_i
+    @new_day_task = @master_goal.days.new(year: @year, month: @month, week_num: Date.new(@year,@month,@day).strftime("%V").to_i, day:@day, day_task_name: params[:new_day_task])
     if @new_day_task.save
-      redirect_to goal_month_week_days_path(@master_goal,@month,@week,year:params[:year]), notice: 'Day Task was created'
+      redirect_to goal_days_path(@master_goal,week:@week,year:params[:year]), notice: 'Day Task was created'
     else
       render action: 'new'
     end
   end
 
-  def show
+  def edit
+    @task = Day.find(params[:id])    
+  end
+
+  def update
+    @task = Day.find(params[:id])
+    @task.update(task_params)
+    @task.update(week_num:(Date.new(@task[:year],@task[:month],@task[:day]).strftime("%V").to_i))
+    redirect_to goal_days_path(@master_goal,week:@week)
+  end
+
+  def destroy
+    @task = Day.find(params[:id])
+    @task.destroy
+    redirect_to goal_days_path(@master_goal,week:@week)
   end
 
 
   private
+  def task_params
+    params.require(:day).permit(:day_task_name, :day, :month, :year)
+  end
 
   def load_master_goal
     @master_goal = Goal.find(params[:goal_id])
   end
 
   def load_date_info
-    if params["month_id"] != nil
-      @month = params["month_id"].to_i
-    else
-      @month = Date.today.month
-    end
 
     if params["year"] != nil
       @year = params["year"].to_i
@@ -58,15 +69,18 @@ class DaysController < ApplicationController
     end  
 
     # handling special case when somebody changes the year in daily view on week 53 and another year has only 52wks
-    if params["week_id"].to_i <= last_year_week_num(@year)
-      if params["week_id"] != nil
-        @week = params[:week_id].to_i
+    if params["week"].to_i <= last_year_week_num(@year)
+      if params["week"] != nil
+        @week = params[:week].to_i
       else
         @week = Date.today.strftime("%V").to_i
       end
     else
       @week = last_year_week_num(@year)
     end
+
+    @month = Date.commercial(@year,@week,4).month
+
   end
 
   def last_year_week_num(year)
