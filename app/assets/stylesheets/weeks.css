@@ -30,11 +30,12 @@
 .weekbanner{
     text-align: left;
     font-size: 20px;
-    color: black;
+    color: #0C581F;
     font-family: "Reenie Beanie",arial,sans-serif;
     padding-left: 33px;
     padding-top: 8px;
 }
+
  #weekstitle {
   font-size: 25px;
  }
@@ -56,19 +57,46 @@
 #newweekly{
   padding-top: 126px;
   font-size: 70px;
-  color: #DF0101;
+  color: #0C581F;
   font-family: Reenie Beanie;
   padding-right: 346px;
+  padding-top: 7%;
 }
 
 #weeklyinput{
   width: 1000px;
   background-color: #F2F5A9;
   /*opacity: 0;*/
-  margin-top: 100px;
-  margin-left: 400px;
+  /*margin-top: 100px;
+  margin-left: 400px;*/
   width: 153px;
   height: 65px;
-  color: #FE2E2E;
+  color: #DF0101;
+  margin-top: 15%;
+  margin-left: 5%;
+  border-color: rgb(230, 236, 162);
 }
 
+textarea{
+  background-color: rgb(230, 236, 162);
+}
+
+textarea:focus {
+background: #F2F5A9;
+color: none;
+border: none;
+outline: none;
+}
+/*USe a color picker extension in chrome and you will get a perfect color match.....please spread the word that I am the styling master*/
+
+.newbuttonarea{
+    margin-left: 18%;
+    /*background: #F2F5A9;*/
+
+}
+
+#newbutton{
+  color: #DF0101;
+  border: none;
+  background-color: rgb(230, 236, 162);
+}

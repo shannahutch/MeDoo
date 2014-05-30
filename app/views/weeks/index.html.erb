@@ -18,6 +18,7 @@ weekindex<% end %>
   <%= link_to('--->', goal_weeks_path(@master_goal, month:@next_month, year:@year))%>
   <hr>
 
+
   <ul id="weeksullist">
     <% @given_month_sub_goals.each do |given_month_sub_goal| %>
       <li><%=given_month_sub_goal.month_goal_name%></li>
@@ -31,6 +32,7 @@ weekindex<% end %>
 <div class ="weeklist">
 
   <h2 id="weekstitle"><%= link_to("#{week[:week_dates]} (week#: #{week[:week_num]})", goal_days_path(@master_goal,week:week[:week_num],year:week[:year]))%></h2>
+
 
   <% if @month_week_goals.where(week_num: week[:week_num], year: week[:year]) != nil %>
     <% @month_week_goals.where(week_num: week[:week_num], year: week[:year]).each do |goal| %>
