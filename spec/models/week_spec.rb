@@ -1,5 +1,8 @@
 require 'spec_helper'
 
 describe Week do
-  pending "add some examples to (or delete) #{__FILE__}"
+  it do
+    w = Week.reflect_on_association(:goals)
+    w.macro.should === :belongs_to
+  end
 end

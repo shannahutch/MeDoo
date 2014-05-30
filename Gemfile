@@ -33,9 +33,13 @@ gem 'json'
 
 gem 'bootstrap_form'
 
+gem 'typhoeus'
+
+
 group :development, :test do
   gem 'dotenv-rails'
   gem 'pry'
+  gem 'pry-rails'
   gem 'rspec-rails'
   gem 'factory_girl_rails'
 end
