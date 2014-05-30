@@ -6,7 +6,7 @@ monthsnew<% end %>
 		<form action="<%=goal_months_path(@master_goal,month_num:@month_num,year:@year)%>" method="post">
   		<%= token_tag form_authenticity_token %>
   			<h3 id="newmonthheader">New Goal For: <%= "#{Date::MONTHNAMES[@month_num.to_i]}, #{@year}" %></h3>
-  				<input type="text" placeholder="Exercise, etc." name="new_monthly_todo" class="form-control">
+  				<input type="text" placeholder="Exercise 3 times a week, etc." name="new_monthly_todo" class="form-control">
 <br />
   				<input type = "submit" id="monthsubmit">
 	</div>
