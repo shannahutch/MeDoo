@@ -14,9 +14,9 @@ daysindex<% end %>
 <%= link_to('--->', goal_days_path(@master_goal,week:@next_week,year:@year))%>
 </div>
 <hr>
-<ul>
+<ul class="dayindexul">
   <% @given_week_sub_goals.each do |given_week_sub_goal| %>
-    <li><%=given_week_sub_goal.weekly_goal_name%></li>
+    <li class="dayindexli">Weekly Goal: <%=given_week_sub_goal.weekly_goal_name%></li>
   <% end %>
 </ul>
 <hr>
