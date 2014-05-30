@@ -1,27 +1,32 @@
 <% content_for :body_type do%>
 new<% end %>
 
-<h1 class="newtitle">MeDoo</h1>
-
 <div class="aboutlanding">
+	<h1 class="newtitle">MeDoo</h1>
 	<p><span id="organizer">ORGANIZER</span> / <span id="task"> TASK LIST</span></p>
 	<h1>Scheduling Solutions</h1>
 	<p>Organize your projects and never miss a goal again.</p>
 </div>
 
-<div class="col-md-4 col-sm-4 col-xs-6 col-md-offset-4 col-sm-offset-4" style="margin-top: 3%;">
-	<%= bootstrap_form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-	<%= f.email_field :email, autofocus: true, hide_label: true, placeholder: 'Email' %>
-		  
-	<%= f.password_field :password, autocomplete: "off", hide_label: true, placeholder: "Password" %>
+<div class="col-md-6 col-sm-6 col-xs-6 col-md-offset-2 col-sm-offset-2" style="margin-top: 3%;">
+	<div class="loginform">
+		<%= bootstrap_form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+		<%= f.email_field :email, autofocus: true, hide_label: true, placeholder: 'Email' %>
+			  
+		<%= f.password_field :password, autocomplete: "off", hide_label: true, placeholder: "Password" %>
+		<div id="rememberme">
+		<% if devise_mapping.rememberable? -%>
+			  	<%= f.check_box :remember_me %>
+		</div>
+		<% end %>
 
-	<% if devise_mapping.rememberable? -%>
-		  	<%= f.check_box :remember_me %>
-	<% end %>
+	</div>
 
-	<div><%= f.submit "Log in", class: "btn btn-primary" %> or <span><%= link_to "Sign up", new_registration_path(resource_name), class: "btn btn-success" %></span></div>
+	<div class="loginbuttons">
+		<%= f.submit "Log in", class: "btn btn-primary" %> or <span><%= link_to "Sign up", new_registration_path(resource_name), class: "btn btn-success" %></span></div>
 	<% end %>
-	<br />
-	Forgot your password? <%= link_to "Click here", new_password_path(resource_name), class: "btn btn-info"%>
+	<div id="forgotbutton">
+	<p>Forgot your password? <span><%= link_to "Click here", new_password_path(resource_name), class: "btn btn-info"%></span></p>
+	</div>
 
 </div>

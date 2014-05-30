@@ -1,0 +1,32 @@
+.daysnew{
+	background-image: url("http://i.imgur.com/qGepgMr.jpg");
+	background-size: cover;
+	color: white;
+}
+
+#newdayform{
+
+}
+
+#daysubmit{
+	top: 1em;
+	position: relative;
+	background-color: #1E1E1E;
+    color: #979797;
+    height: 24px;
+    width: 103px;
+    color: #bbbbbb;
+ 	border: 0;
+    border-radius:5px;
+    font-family: Sansation,Arial;
+}
+
+#daynewheader{
+	color: white;
+	font-family: 'Droid Serif'
+}
+
+.daynewform{
+	top: 10em;
+	position: relative;
+}
