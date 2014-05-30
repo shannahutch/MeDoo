@@ -1,21 +1,22 @@
 class GoalsController < ApplicationController
-	
+  before_action :check_goal_owner, except: [:index, :new, :create]
+
   def index
-		@goals = Goal.all
-	end
+    @goals = current_user.goals
+  end
 
   def new
     @goal = Goal.new
   end
 
   def create
-    @goal= Goal.new(goal_params)
-     if @goal.save
+    @goal= current_user.goals.new(goal_params)
+    if @goal.save
       redirect_to goals_path
     else
       flash[:error] = "Your Goal was not saved. Try again"
-        redirect_to new_goals_path
-    end 
+      redirect_to new_goal_path
+    end
   end
 
   def show
@@ -39,8 +40,8 @@ class GoalsController < ApplicationController
   end
 
   private
-    def goal_params
-      params.require(:goal).permit(:name, :description)
-    end
+  def goal_params
+    params.require(:goal).permit(:name, :description)
+  end
 
 end
