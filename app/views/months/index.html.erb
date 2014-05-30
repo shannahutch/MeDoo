@@ -30,8 +30,9 @@ monthsindex<% end %>
 			<tr>
   			<% @monthly_goals.where(month_num: month[:month_num], year:@year).each do |monthly_goal| %>
           <td id="monthlygoal">
-            <%= monthly_goal.month_goal_name %> 
-            <%= link_to "Edit", edit_goal_month_path(@master_goal, monthly_goal)%>
+            <%= monthly_goal.month_goal_name %>
+            <%= link_to "Edit", edit_goal_month_path(@master_goal, monthly_goal)%> / <span>
+            <%= link_to "Remove", goal_month_path(@master_goal, monthly_goal), method: 'delete'%></span>
           </td>
         </tr>
         <% end %>
