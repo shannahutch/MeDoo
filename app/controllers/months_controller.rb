@@ -1,6 +1,6 @@
 class MonthsController < ApplicationController
 
-  before_action :load_master_goal, :load_date_info
+  before_action :load_master_goal, :load_date_info, :check_goal_owner
 
   def index
     # sql select all the sub-monthly-goals -> -> input that was previously typed in This months view

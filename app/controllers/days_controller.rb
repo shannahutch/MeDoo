@@ -1,5 +1,5 @@
 class DaysController < ApplicationController
-	  before_action :load_master_goal, :load_date_info
+	  before_action :load_master_goal, :load_date_info, :check_goal_owner
 
   def index
     # sql select all the sub-weekly-goals -> input from the weekly view
@@ -40,7 +40,8 @@ class DaysController < ApplicationController
   def update
     @task = Day.find(params[:id])
     @task.update(task_params)
-    @task.update(week_num:(Date.new(@task[:year],@task[:month],@task[:day]).strftime("%V").to_i))
+    @week = (Date.new(@task[:year],@task[:month],@task[:day]).strftime("%V").to_i)
+    @task.update(week_num:@week)
     redirect_to goal_days_path(@master_goal,week:@week)
   end
 
